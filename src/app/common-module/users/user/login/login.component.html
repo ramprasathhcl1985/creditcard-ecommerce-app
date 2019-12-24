@@ -1,0 +1,90 @@
+<main class="main-content">
+
+    <div class="page">
+        <div class="container">
+            <h3 class="entry-title">Multi usage portal</h3>
+            <!--  <p>Nam posuere purus vitae est sollicitudin placerat. Praesent posuere porta dignissim. Phasellus viverra,
+                urna
+                a convallis tincidunt, ante mi tempor turpis, nec tempor mauris ligula ut sapien. Etiam euismod mi eu
+                ante
+                mollis commodo. Suspendisse porta nisi vitae dui hendrerit, eget ornare orci semper. Phasellus pharetra,
+                erat sit amet rutrum porttitor, est eros consectetur elit, molestie consequat erat tellus in dui.
+                Vestibulum
+                a vehicula sem. Nullam commodo quis purus in volutpat. Integer semper lacus a lorem efficitur auctor
+                curabitur tincidunt ligula non.</p> -->
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div *ngIf="!isEcommerceLogin">
+
+                        <h2 class="section-title text-left">Credit Card</h2>
+
+                        <div class="contact-detail">
+                            <div>
+                                <div class="insurance-content">
+                                    <div class="insurance-icon"><i class="icon-sofa"></i></div>
+                                    <h3 class="insurance-title">Credit card</h3>
+                                    <!-- <p>Etiam aliquam ante in mattis molestie. Vivamus in laoreet eros. Proin tempus
+                                        velit
+                                        dui lobortis justo laoreet nes phasellus luctus neque.</p> -->
+                                    <a routerLink="/user/register" class="button">Register</a>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col">
+                    <h2 class="section-title text-left">Login</h2>
+                    <form [formGroup]="userLogin" (ngSubmit)="onSubmit()" class="contact-form">
+                        <div>
+                            <p *ngIf="inValidUserMessage" class="alert alert-danger">{{inValidUserMessage}}</p>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-8">
+                                <label for="userName">User Name</label>
+                                <input type="text" class="form-control" name="userName" id="userName"
+                                    formControlName="userName"
+                                    [ngClass]="{ 'is-invalid':  (userName.dirty || userName.touched) && userName.errors }">
+                                <p class="input-error-text"
+                                    *ngIf="userName.invalid  && (userName.dirty || userName.touched) && userName.errors.required">
+                                    Please enter login user name</p>
+                            </div>
+
+                        </div>
+                        <div class="row">
+
+                            <div class="col-md-8">
+                                <label for="userPassword">Password</label>
+                                <input type="text" class="form-control" name="userPassword" id="userPassword"
+                                    formControlName="userPassword"
+                                    [ngClass]="{ 'is-invalid':  (userPassword.dirty || userPassword.touched) && userPassword.errors }">
+                                <p class="input-error-text"
+                                    *ngIf="userPassword.invalid  && (userPassword.dirty || userPassword.touched) && userPassword.errors.required">
+                                    Please enter password</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <p class="text-right">
+                                    <button type="submit">Login</button>
+                                </p>
+
+
+                            </div>
+
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+
+
+
+        </div>
+    </div> <!-- .page -->
+</main>

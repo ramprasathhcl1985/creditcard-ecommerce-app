@@ -1,0 +1,50 @@
+{
+  "products": [
+    {
+      "productName": "Product Name 1",
+      "productDescription": "Product Name 1",
+      "productQty": 100,
+      "productImg": "assets/products-images/img1.jpg",
+      "productPrice": 200,
+      "productCategory": "mens",
+      "id": 1
+    },
+    {
+      "productName": "Product Name 2",
+      "productDescription": "Product Name 2",
+      "productQty": 100,
+      "productImg": "assets/products-images/img2.jpg",
+      "productPrice": 100,
+      "productCategory": "mens",
+      "id": 2
+    },
+    {
+      "productName": "Product Name 3",
+      "productDescription": "Product Name 3",
+      "productQty": 100,
+      "productImg": "assets/products-images/img3.jpg",
+      "productPrice": 200,
+      "productCategory": "mens",
+      "id": 3
+    },
+    {
+      "productName": "Product Name 4",
+      "productDescription": "Product Name 3",
+      "productQty": 100,
+      "productImg": "assets/products-images/img4.jpg",
+      "productPrice": 200,
+      "productCategory": "mens",
+      "id": 4
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

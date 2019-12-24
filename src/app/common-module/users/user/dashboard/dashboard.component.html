@@ -1,0 +1,135 @@
+<main class="main-content">
+
+    <div class="page">
+        <div class="container">
+            <h3 class="entry-title">Credit card details</h3>
+            <div class="row">
+                <table class="table table-dark">
+                    <tr>
+                        <th>Card Number</th>
+                        <th>Card CCV</th>
+                        <th>Card Limit</th>
+                        <th>Card Expiry</th>
+                        <th>Balance</th>
+                    </tr>
+                    <tr>
+                        <td>{{creditCard?.cardNumber}}</td>
+                        <td>{{creditCard?.cvv}}</td>
+                        <td>{{creditCard?.cardlimit | currency}}</td>
+                        <td>{{creditCard?.expiryDate}}</td>
+                        <td>{{creditCard?.balance | currency}}</td>
+                    </tr>
+                </table>
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div>
+                        <div class="contact-detail">
+                            <div>
+
+                                <div class="insurance-icon"><i class="icon-sofa"></i></div>
+                                <h3 class="entry-title">Credit card statement</h3>
+                                <form [formGroup]="myTransferList" (ngSubmit)="onSubmit()" class="contact-form">
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <label>Select Month</label>
+                                            <select class="form-control" name="transferMonth"
+                                                formControlName="transferMonth"
+                                                [ngClass]="{ 'is-invalid':  (transferMonth.dirty || transferMonth.touched) && transferMonth.errors }">
+                                                <option value="">Select Month</option>
+                                                <option [value]=" i" *ngFor="let item of monthList; let i=index">
+                                                    {{item}}</option>
+                                            </select>
+                                            <p class="input-error-text"
+                                                *ngIf="transferMonth.invalid  && (transferMonth.dirty || transferMonth.touched) && transferMonth.errors.required">
+                                                Please select month</p>
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+
+                                        <div class="col-md-8">
+                                            <label>Select Year</label>
+                                            <select class="form-control" name="transferYear"
+                                                formControlName="transferYear"
+                                                [ngClass]="{ 'is-invalid':  (transferYear.dirty || transferYear.touched) && transferYear.errors }">
+                                                <option value="">Select Year</option>
+                                                <option [value]=" year" *ngFor="let year of yearsList"> {{year}}
+                                                </option>
+                                            </select>
+                                            <p class="input-error-text"
+                                                *ngIf="transferYear.invalid  && (transferYear.dirty || transferYear.touched) && transferYear.errors.required">
+                                                Please select Year</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <p class="text-right">
+                                                <button type="submit">Search</button>
+                                            </p>
+
+
+                                        </div>
+
+                                    </div>
+
+                                </form>
+
+
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col">
+
+
+                </div>
+            </div>
+            <div class="row" *ngIf="transactionList">
+                <p-table [value]="transactionList">
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <th *ngFor="let item of tableHeaders;">
+
+                                {{item}}
+                            </th>
+
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-item>
+                        <tr>
+
+                            <td>
+
+                                {{item.description}}
+                            </td>
+                            <td>
+
+                                {{item.amount}}
+                            </td>
+                            <td>
+
+                                {{item.status}}
+                            </td>
+                            <td>
+
+                                {{item.date}}
+                            </td>
+
+
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </div>
+            <div class="row" *ngIf="noRecordsFound"> No records found</div>
+
+
+
+        </div>
+    </div> <!-- .page -->
+</main>

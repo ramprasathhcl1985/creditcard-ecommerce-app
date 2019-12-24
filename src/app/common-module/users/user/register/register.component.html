@@ -1,0 +1,130 @@
+<main class="main-content">
+
+    <div class="page">
+        <div class="container">
+            <!--  <h3 class="entry-title">Choose your own Credit Card</h3>
+             <p>Nam posuere purus vitae est sollicitudin placerat. Praesent posuere porta dignissim. Phasellus viverra,
+                urna
+                a convallis tincidunt, ante mi tempor turpis, nec tempor mauris ligula ut sapien. Etiam euismod mi eu
+                ante
+                mollis commodo. Suspendisse porta nisi vitae dui hendrerit, eget ornare orci semper. Phasellus pharetra,
+                erat sit amet rutrum porttitor, est eros consectetur elit, molestie consequat erat tellus in dui.
+                Vestibulum
+                a vehicula sem. Nullam commodo quis purus in volutpat. Integer semper lacus a lorem efficitur auctor
+                curabitur tincidunt ligula non.</p> -->
+
+            <div class="row">
+                <div class="col-md-6">
+
+                    <h2 class="section-title text-left">Credit Card</h2>
+
+                    <div class="contact-detail">
+                        <div>
+                            <div class="insurance-content">
+                                <div class="insurance-icon"><i class="icon-sofa"></i></div>
+                                <h3 class="insurance-title">Login</h3>
+                                <p>Have already account login here.</p>
+                                <a routerLink="/user/login" class="button" style="color:aliceblue">Login</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col">
+                    <h2 class="section-title text-left">Credit card registeration</h2>
+                    <p-toast position="center"></p-toast>
+                    <form [formGroup]="userRegisterForm" (ngSubmit)="onSubmit()" class="contact-form">
+                        <h3 *ngIf="userDetailsToScreen">{{userGeneratedPassword}}</h3>
+
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label for="fullName">Name</label>
+                                <input type="text" class="form-control" name="fullName" id="fullName"
+                                    formControlName="fullName"
+                                    [ngClass]="{ 'is-invalid':  (fullName.dirty || fullName.touched) && fullName.errors }">
+                                <p class="input-error-text"
+                                    *ngIf="fullName.invalid  && (fullName.dirty || fullName.touched) && fullName.errors.required">
+                                    Please enter name</p>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="userName">User Name</label>
+                                <input type="text" class="form-control" name="userName" id="userName"
+                                    formControlName="userName"
+                                    [ngClass]="{ 'is-invalid':  (userName.dirty || userName.touched) && userName.errors }">
+                                <p class="input-error-text"
+                                    *ngIf="userName.invalid  && (userName.dirty || userName.touched) && userName.errors.required">
+                                    Please enter user name</p>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label for="salary">Salary</label>
+                                <input type="text" class="form-control" name="salary" id="salary"
+                                    formControlName="salary"
+                                    [ngClass]="{ 'is-invalid':  (salary.dirty || salary.touched) && salary.errors }">
+                                <p class="input-error-text"
+                                    *ngIf="salary.invalid  && (salary.dirty || salary.touched) && salary.errors.required">
+                                    Please enter salary</p>
+                                <p class="input-error-text"
+                                    *ngIf="salary.invalid  && (salary.dirty || salary.touched) && salary.errors.pattern">
+                                    Please enter correct salary</p>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="mobileNo">Mobile</label>
+                                <input type="text" class="form-control" name="mobileNo" id="mobileNo"
+                                    formControlName="mobileNo"
+                                    [ngClass]="{ 'is-invalid':  (mobileNo.dirty || mobileNo.touched) && mobileNo.errors }">
+                                <p class="input-error-text"
+                                    *ngIf="mobileNo.invalid  && (mobileNo.dirty || mobileNo.touched) && mobileNo.errors.required">
+                                    Please enter mobile number</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label for="dateOfBirth">Date of Birth</label>
+                                <p-calendar type="text" class="form-control col-md-12" name="dateOfBirth"
+                                    formControlName="dateOfBirth" [monthNavigator]=true [yearNavigator]="true"
+                                    yearRange="1980:2001" [inputStyle]="{'width':'95%'}">
+                                </p-calendar>
+                                <p class="input-error-text"
+                                    *ngIf="dateOfBirth.invalid  && (dateOfBirth.dirty || dateOfBirth.touched) && dateOfBirth.errors.required">
+                                    Enter date of birth</p>
+                                <p class="input-error-text" *ngIf="inValidAge">
+                                    Age must be above 18 years</p>
+
+                            </div>
+                            <div class="col-md-4">
+                                <label for="address">Address</label>
+                                <input type="text" class="form-control" name="address" formControlName="address"
+                                    [ngClass]="{ 'is-invalid':  (address.dirty || address.touched) && address.errors }">
+                                <p class="input-error-text"
+                                    *ngIf="address.invalid  && (address.dirty || address.touched) && address.errors.required">
+                                    Enter address is mandatory</p>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <p class="text-right">
+                                    <button type="submit">Register</button>
+                                </p>
+
+
+                            </div>
+
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+
+
+
+        </div>
+    </div> <!-- .page -->
+</main>

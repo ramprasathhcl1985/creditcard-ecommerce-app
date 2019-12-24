@@ -1,0 +1,23 @@
+.box-1{
+    position: absolute;
+     left: 0px;top: 0px;
+ }
+ .box-2{
+     position: absolute; 
+     left: 389px; top: 0px;
+ }
+ .box-3{
+     position: absolute; 
+     left: 779px; top: 0px;
+ }
+ .box-4{
+     position: absolute; 
+     left: 0px; top: 382px;
+ }
+ .input-error-text{
+    color:red;
+
+}
+.calender-custom{
+    width:110%;
+}

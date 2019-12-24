@@ -1,0 +1,89 @@
+<main class="main-content">
+
+    <div class="page">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h2 class="section-title text-left">Make payment</h2>
+                    <h3 *ngIf="paymentSuccess">Product Payment Successfull</h3>
+                    <form [formGroup]="productPayment" (ngSubmit)="onSubmit()" class="contact-form">
+                        <div>
+                            <p *ngIf="inValidUserMessage" class="alert alert-danger">{{inValidUserMessage}}</p>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label for="cardNumber">Card Number</label>
+                                <input type="text" class="form-control" name="cardNumber" id="cardNumber"
+                                    formControlName="cardNumber"
+                                    [ngClass]="{ 'is-invalid':  (cardNumber.dirty || cardNumber.touched) && cardNumber.errors }">
+                                <p class="input-error-text"
+                                    *ngIf="cardNumber.invalid  && (cardNumber.dirty || cardNumber.touched) && cardNumber.errors.required">
+                                    Please enter card number</p>
+                            </div>
+
+                        </div>
+                        <div class="row">
+
+                            <div class="col-md-4">
+                                <label for="cardCCV">CCV</label>
+                                <input type="text" class="form-control" name="cardCCV" id="cardCCV"
+                                    formControlName="cardCCV"
+                                    [ngClass]="{ 'is-invalid':  (cardCCV.dirty || cardCCV.touched) && cardCCV.errors }">
+                                <p class="input-error-text"
+                                    *ngIf="cardCCV.invalid  && (cardCCV.dirty || cardCCV.touched) && cardCCV.errors.required">
+                                    Please enter CCV</p>
+                            </div>
+                        </div>
+                        <div class="row">
+
+                            <div class="col-md-4">
+                                <label for="cardExpiration">Expiry Date</label>
+                                <p-calendar type="text" class="form-control col-md-12" name="cardExpiration"
+                                    formControlName="cardExpiration" [monthNavigator]=true [yearNavigator]="true"
+                                    yearRange="2020:2040">
+                                </p-calendar>
+                                <p class="input-error-text"
+                                    *ngIf="cardExpiration.invalid  && (cardExpiration.dirty || cardExpiration.touched) && cardExpiration.errors.required">
+                                    Please enter expiry date</p>
+                                <p class="input-error-text" *ngIf="inValidCreditCard">
+                                    Invalid credit Card
+
+                                    <p>
+                            </div>
+                        </div>
+                        <div class="row">
+
+                            <div class="col-md-3">
+                                <label for="enterOTP">Enter OTP</label>
+                                <input type="text" class="form-control" name="enterOTP" id="enterOTP"
+                                    formControlName="enterOTP"
+                                    [ngClass]="{ 'is-invalid':  (enterOTP.dirty || enterOTP.touched) && enterOTP.errors }">
+                                <p class="input-error-text"
+                                    *ngIf="enterOTP.invalid  && (enterOTP.dirty || enterOTP.touched) && enterOTP.errors.required">
+                                    Please enter otp</p>
+                            </div>
+                            <div class="col-md-3">
+                                <input type="button" class="btn btn-primary" (click)="generateOtp()"
+                                    value="Generate otp">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <p class="text-left">
+                                    <button type="submit" style="width: 30%;">Pay</button>
+                                </p>
+
+
+                            </div>
+
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</main>
